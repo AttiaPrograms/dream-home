@@ -3,6 +3,7 @@ import AboutUs from './components/about/AboutUs';
 import Services from './components/services/Services';
 import BlogList from './components/blog/BlogList';
 import BlogDetailPage from'./pages/BlogDetailPage';
+import LoginPage from './pages/LoginPage';
 function App(){
   return( 
     <BrowserRouter>
@@ -11,6 +12,7 @@ function App(){
         <Route path="/services" element={<Services/>} />
         <Route path="/blog" element={<BlogList/>}/>
         <Route path="/blog/:id" element={<BlogDetailPage/>}/>
+        <Route path="/login" element={<LoginPage/>}/>
       </Routes>
     </BrowserRouter>
   );
