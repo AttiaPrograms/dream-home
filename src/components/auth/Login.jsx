@@ -3,19 +3,23 @@ import { Link } from "react-router-dom";
 import { Mail, Lock, Eye, EyeOff } from "lucide-react";
 
 export default function Login() {
+  // State for form fields and UI
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
 
+  // Handles form submission and basic validation
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Validate required fields
     if (!email || !password) {
       setError("Please enter your email and password");
       return;
     }
 
+    // Clear error and simulate successful login
     setError("");
     alert("Login Successful!");
   };
@@ -25,18 +29,20 @@ export default function Login() {
       onSubmit={handleSubmit}
       className="w-full max-w-md mx-auto space-y-5"
     >
-      {/* Email */}
+      {/* Email Input Section */}
       <div>
         <label className="block mb-2 text-sm font-semibold text-[#2C3E50]">
           Email
         </label>
 
         <div className="relative">
+          {/* Email Icon */}
           <Mail
             className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
             size={20}
           />
 
+          {/* Email Input Field */}
           <input
             type="email"
             placeholder="Enter your Email"
@@ -47,18 +53,20 @@ export default function Login() {
         </div>
       </div>
 
-      {/* Password */}
+      {/* Password Input Section */}
       <div>
         <label className="block mb-2 text-sm font-semibold text-[#2C3E50]">
           Password
         </label>
 
         <div className="relative">
+          {/* Password Icon */}
           <Lock
             className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
             size={20}
           />
 
+          {/* Password Input Field */}
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Enter your Password"
@@ -71,6 +79,7 @@ export default function Login() {
             }`}
           />
 
+          {/* Toggle Password Visibility */}
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
@@ -80,12 +89,13 @@ export default function Login() {
           </button>
         </div>
 
+        {/* Validation Error Message */}
         {error && (
           <p className="text-red-500 text-sm mt-2">{error}</p>
         )}
       </div>
 
-      {/* Remember Me & Forgot Password */}
+      {/* Remember Me Checkbox & Forgot Password Link */}
       <div className="flex justify-between items-center text-sm">
         <label className="flex items-center gap-2">
           <input
@@ -103,7 +113,7 @@ export default function Login() {
         </Link>
       </div>
 
-      {/* Login Button */}
+      {/* Submit Login Button */}
       <button
         type="submit"
         className="w-full bg-gradient-to-r from-[#C9A84C] to-[#B8860B] text-white py-4 rounded-xl font-semibold hover:opacity-90 transition"
@@ -111,7 +121,7 @@ export default function Login() {
         Login
       </button>
 
-      {/* Divider */}
+      {/* Divider Between Login Options */}
       <div className="flex items-center">
         <div className="flex-1 border-t border-gray-300"></div>
 
@@ -122,19 +132,18 @@ export default function Login() {
         <div className="flex-1 border-t border-gray-300"></div>
       </div>
 
-      {/* Google Button */}
+      {/* Google Login Button */}
       <button
         type="button"
-        onClick={() =>alert("Google Login Coming Soon")}
+        onClick={() => alert("Google Login Coming Soon")}
         className="w-full border border-gray-300 rounded-xl py-4 flex items-center justify-center gap-3 bg-white hover:bg-gray-50 transition"
       >
-        
         <span className="font-medium text-gray-700">
           Login with Google
         </span>
       </button>
 
-      {/* Register */}
+      {/* Registration Link */}
       <p className="text-center text-gray-600">
         Don't have an account?{" "}
         <Link
