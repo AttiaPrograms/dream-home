@@ -4,6 +4,7 @@ import Services from './components/services/Services';
 import BlogList from './components/blog/BlogList';
 import BlogDetailPage from'./pages/BlogDetailPage';
 import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 function App(){
   return( 
     <BrowserRouter>
@@ -13,6 +14,7 @@ function App(){
         <Route path="/blog" element={<BlogList/>}/>
         <Route path="/blog/:id" element={<BlogDetailPage/>}/>
         <Route path="/login" element={<LoginPage/>}/>
+        <Route path="/register" element={<RegisterPage/>}/>
       </Routes>
     </BrowserRouter>
   );
