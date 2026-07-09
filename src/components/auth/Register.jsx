@@ -6,6 +6,9 @@ const Register = () => {
     // Password show/hide karne ke liye state
     const [showPassword, setShowPassword] = useState(false);
 
+    //Error msg ky liye
+    const[error,setError] = useState(" ");
+
     // Form fields ka data store karne ke liye state
     const [formData, setFormData] = useState({
         name: "",
@@ -13,7 +16,7 @@ const Register = () => {
         password:"",
     });
 
-    // Input fields ki value update karne ka function
+   //Input fields ki value update karne ka function
     const handleChange = (e) =>{
         setFormData({...formData, [e.target.name]: e.target.value});
     };
@@ -21,7 +24,14 @@ const Register = () => {
     // Form submit hone par ye function run hota hai
     const handleSubmit = (e) =>{
         e.preventDefault();
-        console.log("FormData:", formData);
+
+        if (!formData.name.trim() || !formData.email.trim() || !formData.password.trim()
+        ) {
+            setError("Please fill all fields");
+            return;
+        }
+        setError(" ");
+        alert("Registration Successfull!")
     };
 
     return (
@@ -110,11 +120,17 @@ const Register = () => {
                 </div>
             </div>
 
+            {error && (
+                <p className ="text-red-500 text-sm mt-2">
+                    {error}
+                </p>
+            )}
+
 
             {/* Register Submit Button */}
             <button
-              type="submit"
-              className="w-full bg-[#C9A84C] hover:bg-[#C9A84C] text-white font-semibold py-3 rounded-xl shadow-md transition"
+              type="submit" 
+              className="w-full bg-gradient-to-r from-[#C9A84C] to-[#B8860B] text-white py-4 rounded-xl font-semibold cursor-pointer"
             >
                 Register
             </button>
