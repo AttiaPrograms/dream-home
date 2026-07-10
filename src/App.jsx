@@ -5,6 +5,7 @@ import BlogList from './components/blog/BlogList';
 import BlogDetailPage from'./pages/BlogDetailPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import ForgetPassword from './components/auth/ForgetPassword';
 function App(){
   return( 
     <BrowserRouter>

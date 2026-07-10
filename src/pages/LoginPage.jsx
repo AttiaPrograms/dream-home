@@ -1,6 +1,5 @@
 import Login from "../components/auth/Login";
 
-
 export default function LoginPage() {
   return (
     <div className="h-screen w-full flex items-center justify-center bg-[#F5F0EB] overflow-hidden p-2 lg:p-4">
@@ -33,13 +32,6 @@ export default function LoginPage() {
         {/* Right Section */}
         <div className="flex items-center justify-center p-6 lg:p-8">
           <div className="w-full max-w-md">
-            <h2 className="text-3xl font-bold text-[#1A2A3A] mb-2 text-center">
-              Login
-            </h2>
-
-            <p className="text-[#7F8C8D] text-base mb-6 text-center">
-              Sign in to continue
-            </p>
 
             <Login />
 
